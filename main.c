@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <Windows.h>
 
-#define D_Name "Õ≥Í≥Ú‡"
-#define D_Surname "Ã‡ÚËÌÂÌÍÓ"
+#define D_Name "–ù—ñ–∫—ñ—Ç–∞"
+#define D_Surname "–ú–∞—Ä—Ç–∏–Ω–µ–Ω–∫–æ"
 
 struct studet {
   char Name[120];
@@ -26,23 +26,27 @@ int main(){
     SetConsoleCP(1251);
 
     printf("ctreated by: ");
-    printf("%s %s –Â-22\n", D_Name, D_Surname);
+    printf("%s %s √ê√•-22\n", D_Name, D_Surname);
 
     while(1){
 
      printf("\n");
      printf("=================================================================================\n");
-     printf("#%d ‚‚Â‰≥Ú¸: ≥Ï'ˇ,Ô≥Á‚Ë˘Â,grade1,grade2,grade3:",i);
+     printf("#%d –≤–≤–µ–¥—ñ—Ç—å: —ñ–º'—è,–ø—Ä—ñ–∑–≤–∏—â–µ,grade1,grade2,grade3:",i);
      scanf("%s %s %d %d %d",&stud[i].Name, &stud[i].Surname, &stud[i].grade_1, &stud[i].grade_2, &stud[i].grade_3);
      stud[i].avg_grade = (stud[i].grade_1+stud[i].grade_2+stud[i].grade_3+3)/3;
      printf("result avarage: %s %s = %lf\n", stud[i].Name, stud[i].Surname, stud[i].avg_grade - 1);
+    
+      
      printf("\n");
-     if(stud[i].avg_grade > Top_Grade){ // ‰‡‡‡, ÏÓÊÌ‡ ·ÛÎÓ ÁÓ·ËÚË ÒÓÚËÓ‚‡ÌËÈ ÒÔËÒÓÍ, ÌÓ Ì‡ „Ó‰ËÌÍÛ 1:5 ≥ ˇ ıÓ˜Û ÒÔ‡ÚË ...
+     if(stud[i].avg_grade > Top_Grade){ // –¥–∞–∞–∞, –º–æ–∂–Ω–∞ –±—É–ª–æ –∑—Ä–æ–±–∏—Ç–∏ —Å–æ—Ä—Ç–∏—Ä–æ–≤–∞–Ω–∏–π —Å–ø–∏—Å–æ–∫, –Ω–æ –Ω–∞ –≥–æ–¥–∏–Ω–∫—É 2:00 —ñ —è —Ö–æ—á—É —Å–ø–∞—Ç–∏ ....
       Top_Grade = stud[i].avg_grade;
      }
      printf(" Top : %lf",Top_Grade);
+      
+      
       i ++;
-
+      
     }
 
 }
