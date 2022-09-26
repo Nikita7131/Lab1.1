@@ -37,10 +37,12 @@ int main(){
      stud[i].avg_grade = (stud[i].grade_1+stud[i].grade_2+stud[i].grade_3+3)/3;
      printf("result avarage: %s %s = %lf\n", stud[i].Name, stud[i].Surname, stud[i].avg_grade - 1);
      printf("\n");
-     if(stud[i].avg_grade > Top_Grade){ // дааа, можна було зробити сортирований список, но на годинку 1:5 і я хочу спати ...
+      
+     if(stud[i].avg_grade > Top_Grade){ // дааа, можна було зробити сортирований список, но на годинку 2:00 і я хочу спати ...
       Top_Grade = stud[i].avg_grade;
      }
      printf(" Top : %lf",Top_Grade);
+      
       i ++;
 
     }
