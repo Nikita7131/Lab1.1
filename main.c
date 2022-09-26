@@ -39,7 +39,7 @@ int main(){
      printf("\n");
       
      if(stud[i].avg_grade > Top_Grade){ // дааа, можна було зробити сортирований список, но на годинку 2:00 і я хочу спати ...
-      Top_Grade = stud[i].avg_grade;
+      Top_Grade = stud[i].avg_grade; // вот тут баг, треба зробити ват так вот "Top_Grade = stud[i].avg_grade - 1;" https://youtu.be/Pxue3FnJe5w?t=4 
      }
      printf(" Top : %lf",Top_Grade);
       
