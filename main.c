@@ -25,7 +25,7 @@ struct studet {
 } stud[Stud_NB];
 
 
-  unsigned long input_cnt;
+unsigned long input_cnt;
 
 
 
@@ -63,30 +63,26 @@ int main(){
        }else{ // здвиг всього массиву
         if(stud[Stud_NB - i].avg_grade < console_avg_grade){ // без цьої фігні будуть баги
         stud[Stud_NB - i].avg_grade = (double)stud[(Stud_NB-1)-i].avg_grade;
-
-
-        for(byte c = 0; c <= 120; c++){ // копіювання всіх елеменітів массиву імен
-         stud[Stud_NB - i].Name[c] = stud[(Stud_NB-1)-i].Name[c];
-        }
-        for(byte c = 0; c <= 120; c++){ // копіювання всіх елеменітів массиву призвіщь
-         stud[Stud_NB - i].Surname[c] = stud[(Stud_NB-1)-i].Surname[c];
-        }
-
-
-
+        for(byte c = 0; c <= 120; c++){stud[Stud_NB - i].Name[c] = stud[(Stud_NB-1)-i].Name[c];} // перенесення всіх елеменітів массиву імен
+        for(byte c = 0; c <= 120; c++){stud[Stud_NB - i].Surname[c] = stud[(Stud_NB-1)-i].Surname[c];}// перенесення всіх елеменітів массиву призвіщь
        }
       }
      }
 
+
      // ложим нове значення в масиив
-     stud[DropMark].Name[0] = console_Name;
-     stud[DropMark].Surname[0] = console_Surname;
+     for(byte c = 0; c <= 120; c++){stud[DropMark].Name[c] = console_Name[c];} // копіювання всіх елеменітів массиву імен
+     for(byte c = 0; c <= 120; c++){stud[DropMark].Surname[c] = console_Surname[c];}// копіювання всіх елеменітів массиву призвіщь
      stud[DropMark].avg_grade = console_avg_grade;
 
+
+     // виводим в консоль топ студентів
      printf("TOP:\n");
 
      for (unsigned long i = 0; i < 10; i++) {
-      printf("№%d %s %s = %lf\n",i + 1, stud[i].Name, stud[i].Surname, stud[i].avg_grade );
+      if(stud[i].avg_grade != 0){
+       printf("№%d %s %s = %lf\n",i + 1, stud[i].Name, stud[i].Surname, stud[i].avg_grade );
+      }
      }
 
    }
