@@ -14,6 +14,9 @@
   int console_grade_1;
   int console_grade_2;
   int console_grade_3;
+  int console_grade_4;
+  int console_grade_5;
+
   double console_avg_grade;
 
 #define Stud_NB 100
@@ -35,17 +38,20 @@ int main(){
     SetConsoleCP(1251);
 
     printf("ctreated by: ");
-    printf("%s %s Ре-22\n", D_Name, D_Surname);
+    printf("%s %s РТФ Ре-22\n", D_Name, D_Surname);
 
+    system("color 2");
 
     while(1){
 
      printf("\n");
      printf("=================================================================================\n");
-     printf("#%d введіть: ім'я,прізвище,grade1,grade2,grade3: ",input_cnt);
-     scanf("%s %s %d %d %d",&console_Name, &console_Surname, &console_grade_1, &console_grade_2, &console_grade_3); // приймуємо інформацію
-     console_avg_grade = (double)(console_grade_1 + console_grade_2 + console_grade_3)/3; // рахуємо середне арифметичне
-     printf(" avarage: %s %s = %lf\n", console_Name, console_Surname, console_avg_grade); // випльовуємо середне арифметичне в консоль
+    while(console_grade_1 == 0 || console_grade_2 == 0 || console_grade_3 == 0 || console_grade_4 == 0 || console_grade_5 == 0 || console_grade_1 > 12 || console_grade_2 > 12  || console_grade_3 > 12 || console_grade_4 > 12  || console_grade_5 > 12 ){ // перевіряєм правильність данних
+      printf("#%d введіть: ім'я,прізвище,grade1,grade2,grade3,grade4,grade5: ",input_cnt);
+      scanf("%s %s %d %d %d %d %d",&console_Name, &console_Surname, &console_grade_1, &console_grade_2, &console_grade_3, &console_grade_4, &console_grade_5); // приймаємо інформацію
+    }
+     console_avg_grade = (double)(console_grade_1 + console_grade_2 + console_grade_3 + console_grade_4 + console_grade_5)/5; // рахуємо середне арифметичне
+     printf(" averagemark : %s %s = %lf\n", console_Name, console_Surname, console_avg_grade); // випльовуємо середне арифметичне в консоль
      printf("\n");
      input_cnt ++; // щотчик студентів
 
@@ -57,7 +63,7 @@ int main(){
      for (unsigned long i = 0; i < Stud_NB; i++) {
        if(DropList == 0){
         if(stud[i].avg_grade < console_avg_grade){ // перевірка на менше значення
-         DropMark = i;
+         DropMark = i; //
          DropList = 1;
         }
        }else{ // здвиг всього массиву
@@ -75,16 +81,24 @@ int main(){
      for(byte c = 0; c <= 120; c++){stud[DropMark].Surname[c] = console_Surname[c];}// копіювання всіх елеменітів массиву призвіщь
      stud[DropMark].avg_grade = console_avg_grade;
 
+     console_grade_1 = 0;
+     console_grade_2 = 0;
+     console_grade_3 = 0;
 
      // виводим в консоль топ студентів
      printf("TOP:\n");
 
-     for (unsigned long i = 0; i < 10; i++) {
-      if(stud[i].avg_grade != 0){
-       printf("№%d %s %s = %lf\n",i + 1, stud[i].Name, stud[i].Surname, stud[i].avg_grade );
+
+     unsigned long StNb = 0;
+     while(StNb < Stud_NB){
+       if(stud[StNb].avg_grade != 0){
+        printf("№%d %s %s = %lf\n",StNb + 1, stud[StNb].Name, stud[StNb].Surname, stud[StNb].avg_grade );
+       }
+      StNb ++;
       }
-     }
+
 
    }
 
 }
+
